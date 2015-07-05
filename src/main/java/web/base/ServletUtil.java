@@ -91,8 +91,7 @@ public class ServletUtil {
 				        String value = item.getString();
 				        map.put(name, value);
 				    } else {
-				    	File uploadedFile = new File(repository, item.getName());
-				    	map.put(item.getFieldName(), uploadedFile);
+				    	map.put(item.getFieldName(), item);
 				    }
 				}
 			}

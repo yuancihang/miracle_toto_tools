@@ -12,6 +12,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.fileupload.FileItem;
+
 import web.base.BaseServlet;
 import web.base.ServletUtil;
 
@@ -61,8 +63,8 @@ public class MiracleServlet extends BaseServlet {
         Map<String, Object> map = ServletUtil.parseUpload(req);
         
         for(Map.Entry<String, Object> entry : map.entrySet()){
-        	File f  = (File)map.get(entry.getKey());
-        	Files.move(f.toPath(), Paths.get(RB2XLS_BASE_DIR, f.getName()));
+        	FileItem fileItem  = (FileItem)entry.getValue();
+        	fileItem.write(Paths.get(RB2XLS_BASE_DIR, fileItem.getName()).toFile());
         }
 		
         File xls = GetYmlWords.getMigrationWords(RB2XLS_BASE_DIR);
@@ -81,8 +83,8 @@ public class MiracleServlet extends BaseServlet {
 		Map<String, Object> map = ServletUtil.parseUpload(req);
 		
 		for(Map.Entry<String, Object> entry : map.entrySet()){
-			File f  = (File)map.get(entry.getKey());
-			Files.move(f.toPath(), Paths.get(GENCNRB_BASE_DIR, f.getName()));
+			FileItem fileItem  = (FileItem)entry.getValue();
+        	fileItem.write(Paths.get(GENCNRB_BASE_DIR, fileItem.getName()).toFile());
 		}
 		
 		File zip = GetYmlWords.generateMigrationCn(GENCNRB_BASE_DIR);
