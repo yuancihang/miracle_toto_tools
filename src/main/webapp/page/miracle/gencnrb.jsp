@@ -11,8 +11,7 @@
 <div class="container-fluid">
 <div class="row">
   <h2 class="sub-header">翻译excel + 日服rb -->>  中文rb</h2>
- <form id="my_form" action="<%= request.getContextPath() %>/MiracleServlet" method="post" ENCTYPE="multipart/form-data">
- <input type="hidden" id="operate" name="operate" value="gencnrb">
+ <form id="my_form" action="<%= request.getContextPath() %>/MiracleServlet?operate=gencnrb" method="post" ENCTYPE="multipart/form-data">
  
   xls: <input type="file" name="xls"><br>
   rb1: <input type="file" name="rb1"><br>

@@ -11,8 +11,7 @@
 <div class="container-fluid">
 <div class="row">
   <h2 class="sub-header">日服 rb-->>xls</h2>
- <form id="my_form" action="<%= request.getContextPath() %>/MiracleServlet" method="post" ENCTYPE="multipart/form-data">
- <input type="hidden" id="operate" name="operate" value="rb2xls">
+ <form id="my_form" action="<%= request.getContextPath() %>/MiracleServlet?operate=rb2xls" method="post" ENCTYPE="multipart/form-data">
  
   rb1: <input type="file" name="rb1"><br>
   rb2: <input type="file" name="rb2"><br>
