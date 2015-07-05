@@ -11,6 +11,7 @@ import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
@@ -78,7 +79,7 @@ public class GetYmlWords {
 	
 	private static List<String> getFileString(File file){
 		try {
-			return Files.readAllLines(file.toPath());
+			return Files.readAllLines(file.toPath(), StandardCharsets.UTF_8);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
