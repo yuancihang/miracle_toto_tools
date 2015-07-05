@@ -24,7 +24,7 @@ public class MiracleServlet extends BaseServlet {
 	private static final String RB2XLS_BASE_DIR = BASE_DIR + "/rb2xls";
 	private static final String GENCNRB_BASE_DIR = BASE_DIR + "/gencnrb";
 	private static final String LAST_WORDS_BASE_DIR = BASE_DIR + "/last_words";
-	private static final String TOTO_DIR = BASE_DIR + "/data/git/toto";
+	private static final String TOTO_DIR = "/data/git/toto";
 	
 	private void cleanDir(String path) throws IOException{
 		Path dir = Paths.get(path);
