@@ -64,7 +64,9 @@ public class MiracleServlet extends BaseServlet {
         
         for(Map.Entry<String, Object> entry : map.entrySet()){
         	FileItem fileItem  = (FileItem)entry.getValue();
-        	fileItem.write(Paths.get(RB2XLS_BASE_DIR, fileItem.getName()).toFile());
+        	if(!fileItem.getName().equals("")){
+        		fileItem.write(Paths.get(RB2XLS_BASE_DIR, fileItem.getName()).toFile());
+        	}
         }
 		
         File xls = GetYmlWords.getMigrationWords(RB2XLS_BASE_DIR);
@@ -84,7 +86,9 @@ public class MiracleServlet extends BaseServlet {
 		
 		for(Map.Entry<String, Object> entry : map.entrySet()){
 			FileItem fileItem  = (FileItem)entry.getValue();
-        	fileItem.write(Paths.get(GENCNRB_BASE_DIR, fileItem.getName()).toFile());
+        	if(!fileItem.getName().equals("")){
+        		fileItem.write(Paths.get(GENCNRB_BASE_DIR, fileItem.getName()).toFile());
+        	}
 		}
 		
 		File zip = GetYmlWords.generateMigrationCn(GENCNRB_BASE_DIR);
